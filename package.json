@@ -1,0 +1,14 @@
+{
+  "name": "render-site",
+  "version": "1.0.0",
+  "description": "Static site with live reload",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "chokidar": "^3.5.3",
+    "ws": "^8.14.2"
+  }
+}
