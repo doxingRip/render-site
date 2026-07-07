@@ -43,42 +43,41 @@ header > div:last-child {
   display: none !important;
 }
 
-/* Hero: живой музыкальный плеер */
-.hero-gui-frame {
+/* Hero: убираем старое GUI-меню и превью плеера */
+.hero-gui-frame,
+.hero-gui-inner,
+.hero-gui-scroll,
+.hero-gui-module-slot,
+#render-hero-preview,
+.render-hero-preview {
   display: none !important;
 }
 
-.render-hero-preview {
-  width: 100%;
-  max-width: 1188px;
-  margin: 3.5rem auto 0;
-  height: min(700px, 72vh);
-  min-height: 520px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #09090b;
-  box-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
-  pointer-events: auto;
-  position: relative;
-  z-index: 2;
+/* Hero: нормальный текст без налезания */
+section h1,
+section h1 span {
+  line-height: 1.05 !important;
+  overflow: visible !important;
+  white-space: normal !important;
 }
 
-.render-hero-preview__frame {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background: #09090b;
+section h1 .blur-reveal-char {
+  display: inline !important;
+  white-space: normal !important;
 }
 
-@media (max-width: 767px) {
-  .render-hero-preview {
-    margin-top: 2rem;
-    height: min(620px, 65vh);
-    min-height: 460px;
-    border-radius: 16px;
-  }
+/* Hero: теги «Удобный интерфейс · ...» сразу видимы */
+section .mt-8.flex.flex-col.items-center,
+section .mt-8.flex.flex-col.items-center span {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+section .mt-8 .blur-reveal-char {
+  opacity: 1 !important;
+  animation: none !important;
 }
 
 /* Секция скачивания вместо покупки */
@@ -555,16 +554,6 @@ html.theme-light .render-theme-toggle:hover {
   border-color: rgba(0, 0, 0, 0.14);
 }
 
-html.theme-light .render-hero-preview {
-  border-color: rgba(0, 0, 0, 0.1);
-  background: #ececee;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
-}
-
-html.theme-light .render-hero-preview__frame {
-  background: #09090b;
-}
-
 html.theme-light .render-download__card {
   border-color: rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.88);
@@ -644,22 +633,7 @@ html.theme-light .text-primary-foreground {
   transform: translate3d(0, 24px, 0) scale(0.98);
 }
 
-/* Hero-плеер */
-.render-hero-preview {
-  animation: render-hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.2s;
-}
-
-@keyframes render-hero-enter {
-  0% {
-    opacity: 0;
-    transform: translateY(32px) scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
+/* Hero-плеер убран */
 
 /* Блок скачивания */
 @keyframes render-card-float-in {
@@ -716,7 +690,6 @@ html.theme-light .cursor-shader-canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .render-hero-preview,
   .render-download__card,
   .scroll-reveal,
   #features .render-feature-card,
