@@ -5,7 +5,6 @@
   var hiddenAuthHrefs = ['/login', '/registration'];
   var downloadUrl = '/downloads/Render_1.0.0_x64-setup.exe';
   var downloadFileName = 'Render_1.0.0_x64-setup.exe';
-  var heroPlayerUrl = '/player/?embed=1';
   var themeStorageKey = 'render_site_theme';
 
   var sunIcon =
@@ -219,49 +218,25 @@
     });
   }
 
-  function setupHeroPreview() {
-    var frame = document.querySelector('.hero-gui-frame');
-    var existing = document.getElementById('render-hero-preview');
-
-    if (existing) return;
-
-    var wrap = document.createElement('div');
-    wrap.id = 'render-hero-preview';
-    wrap.className = 'render-hero-preview';
-
-    var iframe = document.createElement('iframe');
-    iframe.className = 'render-hero-preview__frame';
-    iframe.src = heroPlayerUrl;
-    iframe.title = 'Render Music Player';
-    iframe.loading = 'eager';
-    iframe.setAttribute('allow', 'autoplay');
-    wrap.appendChild(iframe);
-
-    if (frame && frame.parentNode) {
-      frame.parentNode.insertBefore(wrap, frame);
-      return;
-    }
-
-    var heroSection = null;
-    document.querySelectorAll('section').forEach(function (section) {
-      if (heroSection) return;
-      if (section.querySelector('h1')) heroSection = section;
+  function removeHeroGui() {
+    document.querySelectorAll('.hero-gui-frame, .hero-gui-inner').forEach(function (el) {
+      el.remove();
     });
 
-    if (heroSection) {
-      heroSection.appendChild(wrap);
-    }
+    var preview = document.getElementById('render-hero-preview');
+    if (preview) preview.remove();
   }
 
-  function watchHeroPreview() {
+  function watchHeroGuiRemoval() {
     if (typeof MutationObserver === 'undefined') return;
 
     var timer = null;
     var observer = new MutationObserver(function () {
-      if (document.getElementById('render-hero-preview')) return;
-      if (!document.querySelector('.hero-gui-frame') && !document.querySelector('section h1')) return;
+      if (!document.querySelector('.hero-gui-frame') && !document.getElementById('render-hero-preview')) {
+        return;
+      }
       clearTimeout(timer);
-      timer = setTimeout(setupHeroPreview, 100);
+      timer = setTimeout(removeHeroGui, 50);
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
@@ -430,6 +405,12 @@
       el.style.setProperty('filter', 'none', 'important');
       el.style.setProperty('transform', 'none', 'important');
     });
+
+    document.querySelectorAll('section .mt-8.flex.flex-col.items-center .opacity-0').forEach(function (el) {
+      el.style.setProperty('opacity', '1', 'important');
+      el.style.setProperty('visibility', 'visible', 'important');
+      el.removeAttribute('aria-hidden');
+    });
   }
 
   function applyUnboundedFont() {
@@ -483,7 +464,7 @@
       setupDownloadNav();
       hideAuthButtons();
       setupThemeToggle();
-      setupHeroPreview();
+      removeHeroGui();
       setupDownloadSection();
       hideSections();
       hideHelpExtras();
@@ -518,6 +499,7 @@
       textFixTimer = setTimeout(function () {
         fixVisibleText();
         hideExploreButton();
+        removeHeroGui();
         setupFeatureTileAnimations();
       }, 150);
     });
@@ -525,6 +507,6 @@
   }
 
   watchDownloadSection();
-  watchHeroPreview();
+  watchHeroGuiRemoval();
   watchThemeToggle();
 })();
