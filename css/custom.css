@@ -1,0 +1,729 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap");
+
+/* Шрифт Unbounded на всём сайте */
+html,
+body,
+button,
+input,
+textarea,
+select,
+a,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+label {
+  font-family: "Unbounded", sans-serif !important;
+}
+
+/* Полностью убираем Войти и Регистрация */
+a[href="/login"],
+a[href="/registration"],
+.nav-cta {
+  display: none !important;
+}
+
+nav > div:last-child,
+header > div:last-child {
+  margin-left: auto;
+}
+
+[data-language-selector],
+.language-selector {
+  margin-left: auto !important;
+}
+
+/* Скрываем секции (контакты #help оставляем) */
+.footer-columns {
+  display: none !important;
+}
+
+/* Hero: живой музыкальный плеер */
+.hero-gui-frame {
+  display: none !important;
+}
+
+.render-hero-preview {
+  width: 100%;
+  max-width: 1188px;
+  margin: 3.5rem auto 0;
+  height: min(700px, 72vh);
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #09090b;
+  box-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.render-hero-preview__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #09090b;
+}
+
+@media (max-width: 767px) {
+  .render-hero-preview {
+    margin-top: 2rem;
+    height: min(620px, 65vh);
+    min-height: 460px;
+    border-radius: 16px;
+  }
+}
+
+/* Секция скачивания вместо покупки */
+#pricing {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  width: 100%;
+  max-width: 1188px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+#pricing > *:not(#render-download-block) {
+  display: none !important;
+}
+
+.render-download {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  position: relative;
+  font-family: "Unbounded", sans-serif;
+}
+
+.render-download__card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.render-download__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    70% 45% at 50% 0%,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.render-download__card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.render-download__logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+}
+
+.render-download__title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.render-download__subtitle {
+  margin: 0 auto 28px;
+  max-width: 420px;
+  color: #737373;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.render-download__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.render-download__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(237, 237, 240, 0.75);
+  font-family: "Unbounded", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.render-download__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 240px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: #ededf0;
+  color: #070708;
+  font-family: "Unbounded", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.12);
+}
+
+.render-download__btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.18);
+}
+
+.render-download__btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.render-download__note {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: "Unbounded", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .render-download__card {
+    padding: 36px 24px 32px;
+  }
+
+  .render-download__btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* В help скрываем только FAQ-вопросы и карточку профиля */
+#help ul {
+  display: none !important;
+}
+
+#help a.faq-glass[href="/account"],
+#help a.faq-glass[href*="/account"] {
+  display: none !important;
+}
+
+/* Контакты: 2 карточки сверху, 1 по центру снизу */
+#help > div:nth-child(2) {
+  display: block !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#help > div:nth-child(2) > div:first-child {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+#help > div:nth-child(2) > div:first-child > a.faq-glass:nth-child(3) {
+  grid-column: 1 / -1 !important;
+  justify-self: center !important;
+  width: calc(50% - 8px) !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 640px) {
+  #help > div:nth-child(2) > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  #help > div:nth-child(2) > div:first-child > a.faq-glass:nth-child(3) {
+    width: 100% !important;
+    justify-self: stretch !important;
+  }
+}
+
+/* YouTube в футере */
+.footer-social a[href*="youtube"],
+.footer-social a[href*="YouTube"] {
+  display: none !important;
+}
+
+/* Логотип */
+.nav-logo-glyph {
+  width: 32px !important;
+  height: 32px !important;
+  background: url("/images/logo.png") center / contain no-repeat !important;
+}
+
+.nav-logo-glyph svg,
+.nav-logo-glyph img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Скрыть кнопку «Изучить» / Explore в hero */
+section > div.mt-6 > button[type="button"].bg-white.text-black,
+section button[type="button"].bg-white.text-black.text-\[13px\] {
+  display: none !important;
+}
+
+/* Убираем весь текст под картинками в Features */
+#features div[style*="bottom:24"][style*="left:24"],
+#features div[style*="bottom: 24"][style*="left: 24"] {
+  display: none !important;
+}
+
+/* Область картинок на всю карточку */
+#features .relative.h-\[312px\] > div[aria-hidden="true"] {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  border-radius: 12px !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+#features [data-mockup] {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-color: #0a0a0a !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  overflow: hidden !important;
+}
+
+#features [data-mockup="ingameGui"] {
+  background-image: url("/images/1.png") !important;
+}
+
+#features [data-mockup="hud"] {
+  background-image: url("/images/2.png") !important;
+}
+
+#features [data-mockup="configs"] {
+  background-image: url("/images/3.png") !important;
+}
+
+#features [data-mockup="categories"] {
+  background-image: url("/images/4.png") !important;
+}
+
+#features [data-mockup] > * {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Виньетка поверх картинок */
+#features [data-mockup]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.45) 72%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Переключатель темы у логотипа */
+.render-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 3;
+}
+
+.render-header-actions {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto !important;
+}
+
+.render-theme-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.render-theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.render-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ===================== Светлая тема ===================== */
+html.theme-light {
+  color-scheme: light;
+  --background: oklch(98.5% 0 0);
+  --foreground: oklch(20.5% 0 0);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(20.5% 0 0);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(20.5% 0 0);
+  --primary: oklch(20.5% 0 0);
+  --primary-foreground: oklch(98.5% 0 0);
+  --secondary: oklch(96% 0 0);
+  --secondary-foreground: oklch(20.5% 0 0);
+  --muted: oklch(96% 0 0);
+  --muted-foreground: oklch(50% 0 0);
+  --accent: oklch(96% 0 0);
+  --accent-foreground: oklch(20.5% 0 0);
+  --border: oklch(90% 0 0);
+}
+
+html.theme-light body {
+  background: #f4f4f5 !important;
+  color: #18181b !important;
+}
+
+html.theme-light .bg-black,
+html.theme-light .bg-background {
+  background-color: #f4f4f5 !important;
+}
+
+html.theme-light [class*="bg-black/"] {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+html.theme-light [class*="text-white"] {
+  color: #18181b !important;
+}
+
+html.theme-light .nav-logo-btn,
+html.theme-light .nav-logo-btn span {
+  color: #18181b !important;
+}
+
+html.theme-light header button:not(.render-theme-toggle),
+html.theme-light header nav button {
+  color: rgba(39, 39, 42, 0.68) !important;
+}
+
+html.theme-light header button:not(.render-theme-toggle):hover,
+html.theme-light header nav button:hover {
+  color: #18181b !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html.theme-light [class*="ededf0"] {
+  color: rgba(39, 39, 42, 0.68) !important;
+}
+
+html.theme-light button[class*="ededf0"]:hover {
+  color: #18181b !important;
+}
+
+html.theme-light header .liquid-glass,
+html.theme-light .fixed.liquid-glass {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.theme-light footer,
+html.theme-light footer p,
+html.theme-light footer span,
+html.theme-light footer a,
+html.theme-light footer button {
+  color: #52525b !important;
+}
+
+html.theme-light footer a:hover,
+html.theme-light footer button:hover {
+  color: #18181b !important;
+}
+
+html.theme-light footer .faq-glass,
+html.theme-light footer button.faq-glass {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #27272a !important;
+}
+
+html.theme-light .text-muted-foreground {
+  color: #71717a !important;
+}
+
+html.theme-light h1,
+html.theme-light h2,
+html.theme-light h3 {
+  color: #18181b !important;
+}
+
+html.theme-light .text-black {
+  color: #18181b !important;
+}
+
+html.theme-light [class*="border-white"] {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.theme-light [class*="bg-white/"] {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+html.theme-light .faq-glass,
+html.theme-light .glass-card,
+html.theme-light .liquid-glass {
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.theme-light .faq-glass:hover {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html.theme-light .render-theme-toggle {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.04);
+  color: #27272a;
+}
+
+html.theme-light .render-theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+html.theme-light .render-hero-preview {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: #ececee;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+html.theme-light .render-hero-preview__frame {
+  background: #09090b;
+}
+
+html.theme-light .render-download__card {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+html.theme-light .render-download__card::before {
+  background: radial-gradient(
+    70% 45% at 50% 0%,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+html.theme-light .render-download__title {
+  color: #18181b;
+}
+
+html.theme-light .render-download__subtitle {
+  color: #71717a;
+}
+
+html.theme-light .render-download__tag {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+  color: #52525b;
+}
+
+html.theme-light .render-download__note {
+  color: rgba(24, 24, 27, 0.45);
+}
+
+html.theme-light #features [data-mockup] {
+  background-color: #0a0a0a !important;
+}
+
+html.theme-light #features [data-mockup]::after {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    rgba(0, 0, 0, 0.35) 75%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+html.theme-light .render-download__btn,
+html.theme-light .render-download__btn:hover {
+  background: #18181b;
+  color: #fafafa;
+}
+
+html.theme-light .bg-primary {
+  background-color: #18181b !important;
+}
+
+html.theme-light .text-primary-foreground {
+  color: #fafafa !important;
+}
+
+/* ===================== Кастомные анимации ===================== */
+
+/* Shader-фон: только скорость (без поворота canvas) */
+.cursor-shader-canvas {
+  --shader-target-opacity: 0.1 !important;
+}
+
+/* Текст blur-reveal — всегда видимый */
+.blur-reveal-char {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Секции при скролле — без наклона */
+.scroll-reveal {
+  transform: translate3d(0, 24px, 0) scale(0.98);
+}
+
+/* Hero-плеер */
+.render-hero-preview {
+  animation: render-hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.2s;
+}
+
+@keyframes render-hero-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Блок скачивания */
+@keyframes render-card-float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.render-download__card {
+  animation: render-card-float-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Плитки Features со скринами */
+#features .render-feature-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.34, 1.4, 0.64, 1),
+    box-shadow 0.55s ease,
+    border-color 0.4s ease;
+  transition-delay: calc(var(--feature-i, 0) * 90ms);
+}
+
+#features .render-feature-card.render-feature-visible {
+  opacity: 1;
+  transform: none;
+}
+
+#features .render-feature-card:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.45) !important;
+}
+
+#features .render-feature-card [data-mockup] {
+  transition: transform 0.65s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+#features .render-feature-card:hover [data-mockup] {
+  transform: scale(1.04);
+}
+
+html.theme-light #features .render-feature-card:hover {
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.14) !important;
+}
+
+html.theme-light .cursor-shader-canvas {
+  --shader-target-opacity: 0.07 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .render-hero-preview,
+  .render-download__card,
+  .scroll-reveal,
+  #features .render-feature-card,
+  #features .render-feature-card [data-mockup] {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
